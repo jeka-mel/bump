@@ -3,6 +3,8 @@
 
 VERSION='1.0'
 
+TARGETS_URL='https://raw.githubusercontent.com/ValeryP/help-ukraine-win/main/web-ddos/public/targets.txt'
+
 print_help () {
   echo "Usage: os_x_ripper.sh --file urls.txt"
   echo "--file|-f - filename where urls are located"
@@ -53,7 +55,7 @@ generate_compose () {
             echo "    command: $site_url" >> docker-compose.yml
             counter=counter+1
         fi
-    done < $FILE
+    done < targets.txt
 }
 
 ripper_start () {
@@ -88,6 +90,8 @@ while test -n "$1"; do
   esac
   shift
 done
+
+curl --silent $TARGETS_URL --output targets.txt
 
 check_dependencies
 check_params
