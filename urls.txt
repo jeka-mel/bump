@@ -1,0 +1,16 @@
+https://tinkoff.ru
+https://sberbank.ru
+
+stories-stat.online.sberbank.ru
+clickstream.online.sberbank.ru
+stat.online.sberbank.ru
+
+91.215.36.0/22
+195.209.150.0/24
+https://portal.vpn.russianpost.ru
+http://vpn-msk-rp.it-one.ru
+vpn.russianpost.ru
+vpn-vs1.vpn.russianpost.ru 
+vpn-vs2.vpn.russianpost.ru 
+vpn-vs3.vpn.russianpost.ru 
+vpn-vs4.vpn.russianpost.ru
