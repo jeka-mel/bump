@@ -22,9 +22,9 @@ check_dependencies () {
 }
 
 check_params () {
-  if [ -z ${FILE+x} ]; then
-    echo "Filename is unset, please specify filename for urls file"
-    exit 1
+  if [ -z ${mode+x} ]; then
+    echo -e "Mode is unset, setting to install runmode"
+    mode=install
   fi
 }
 
