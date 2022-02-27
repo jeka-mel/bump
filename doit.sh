@@ -40,7 +40,7 @@ generate_compose_light () {
       echo "    command: -c 1000 -d 43200s $site_url" >> docker-compose.yml
       counter=counter+1
     fi
-  done < $FILE
+  done < targets.txt
 }
 
 generate_compose () {
