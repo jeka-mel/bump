@@ -38,7 +38,7 @@ generate_compose_light () {
   echo "services:" >> docker-compose.yml
   counter=1
   while read -r site_url; do
-    if [ $counter \< $amount ]; then
+    if [ $counter -le $amount ]; then
         if [ ! -z $site_url ]; then
           echo "  ddos-runner-$counter:" >> docker-compose.yml
           echo "    image: alpine/bombardier:latest" >> docker-compose.yml
@@ -59,7 +59,7 @@ generate_compose () {
   echo "services:" >> docker-compose.yml
   counter=1
   while read -r site_url; do
-    if [ $counter \< $amount ]; then
+    if [ $counter -le $amount ]; then
       if [ ! -z $site_url ]; then
           echo "  ddos-runner-$counter:" >> docker-compose.yml
           echo "    image: nitupkcuf/ddos-ripper:latest" >> docker-compose.yml
