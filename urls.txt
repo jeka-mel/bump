@@ -21,3 +21,4 @@ www.tkbbank.ru
 api.sberbank.ru
 im.uralsib.ru
 api.developer.sber.ru
+dnronline.su
