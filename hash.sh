@@ -10,7 +10,7 @@ else
       echo "files contents are identical"
     else
       echo "files contents are not identical"
-      docker_current_state=$(cp urls.txt temp.txt ; docker-compose down ; sh doit.sh -m light  ; docker-compose up)
+      docker_current_state=$(cp urls.txt temp.txt ; docker-compose down ; sh doit.sh -m light  ; docker-compose up -d)
       echo "$docker_current_state"
     fi
 fi
