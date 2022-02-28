@@ -1,11 +1,9 @@
 https://tinkoff.ru
 https://sberbank.ru
 rosguard.gov.ru
-
 stories-stat.online.sberbank.ru
 clickstream.online.sberbank.ru
 stat.online.sberbank.ru
-
 tass.ru
 www.vbr.ru
 alfabank.ru
