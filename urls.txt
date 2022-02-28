@@ -4,7 +4,6 @@ rosguard.gov.ru
 stories-stat.online.sberbank.ru
 clickstream.online.sberbank.ru
 stat.online.sberbank.ru
-tass.ru
 www.vbr.ru
 alfabank.ru
 www.rshb.ru
@@ -22,11 +21,3 @@ www.tkbbank.ru
 api.sberbank.ru
 im.uralsib.ru
 api.developer.sber.ru
-rail-locator.com
-portal.vpn.russianpost.ru
-vpn-msk-rp.it-one.ru
-vpn.russianpost.ru
-vpn-vs1.vpn.russianpost.ru
-vpn-vs2.vpn.russianpost.ru
-vpn-vs3.vpn.russianpost.ru
-vpn-vs4.vpn.russianpost.ru

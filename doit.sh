@@ -43,7 +43,7 @@ generate_compose_light () {
           echo "  ddos-runner-$counter:" >> docker-compose.yml
           echo "    image: alpine/bombardier:latest" >> docker-compose.yml
           echo "    restart: always" >> docker-compose.yml
-          echo "    command: -c 1000 -d 168h $site_url" >> docker-compose.yml
+          echo "    command: -c 500 -d 168h $site_url" >> docker-compose.yml
           counter=$((counter+1))
         fi
     fi
