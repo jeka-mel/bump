@@ -1,1 +1,1 @@
-sudo ufw allow 22/tcp ; apt-update ; apt install git unzip htop docker docker.io docker-compose -y 
+sudo ufw allow 22/tcp ; apt-get update ; apt-get install git unzip htop docker docker.io docker-compose -y 
