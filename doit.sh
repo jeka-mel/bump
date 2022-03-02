@@ -3,6 +3,8 @@
 
 VERSION='1.0'
 
+TARGETS_URL=https://gist.githubusercontent.com/jeka-mel/8620d2b017930a0c6753a28d0ea1a1b7/raw/targets.txt
+
 print_help () {
   echo "Usage: os_x_ripper.sh --file urls.txt"
   echo "--file|-f - filename where urls are located"
