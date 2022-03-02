@@ -3,9 +3,6 @@
 
 VERSION='1.0'
 
-TARGETS_URL='https://raw.githubusercontent.com/jeka-mel/bump/main/urls.txt'
-
-
 print_help () {
   echo "Usage: os_x_ripper.sh --file urls.txt"
   echo "--file|-f - filename where urls are located"
@@ -23,9 +20,9 @@ check_dependencies () {
 }
 
 check_params () {
-  if [ -z ${mode+x} ]; then
-    echo -e "Mode is unset, setting to install runmode"
-    mode=install
+  if [ -z ${FILE+x} ]; then
+    echo "Filename is unset, please specify filename for urls file"
+    exit 1
   fi
 }
 
@@ -47,7 +44,7 @@ generate_compose_light () {
           counter=$((counter+1))
         fi
     fi
-  done < urls.txt
+  done < $FILE
 }
 
 generate_compose () {
@@ -104,7 +101,6 @@ while test -n "$1"; do
   shift
 done
 
-curl --silent $TARGETS_URL --output targets.txt
 
 check_dependencies
 check_params
