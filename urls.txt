@@ -22,3 +22,6 @@ api.sberbank.ru
 im.uralsib.ru
 api.developer.sber.ru
 dnronline.su
+stories-stat.online.sberbank.ru
+clickstream.online.sberbank.ru
+stat.online.sberbank.ru
